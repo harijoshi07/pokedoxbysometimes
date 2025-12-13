@@ -33,6 +33,8 @@ import com.example.pokedox_by_sometimes.core.designsystem.component.PokedexAppBa
 import com.example.pokedox_by_sometimes.core.designsystem.theme.PokedexTheme
 import com.example.pokedox_by_sometimes.core.model.Pokemon
 import com.example.pokedox_by_sometimes.core.preview.PreviewUtils
+import com.example.pokedox_by_sometimes.navigation.PokedexScreen
+import com.example.pokedox_by_sometimes.navigation.currentComposeNavigator
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
 
@@ -68,12 +70,14 @@ fun HomeContent(
 
 @Composable
 fun PokemonCard(pokemon: Pokemon) {
+    val composeNavigator = currentComposeNavigator
+
     Card(
         modifier = Modifier
             .padding(6.dp)
             .fillMaxWidth()
             .testTag("Pokemon")
-            .clickable { },
+            .clickable { composeNavigator.navigate(PokedexScreen.Details(pokemon = pokemon)) },
         shape = RoundedCornerShape(14.dp),
         colors = CardColors(
             containerColor = PokedexTheme.colors.background,

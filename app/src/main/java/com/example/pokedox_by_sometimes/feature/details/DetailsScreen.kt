@@ -2,6 +2,7 @@ package com.example.pokedox_by_sometimes.feature.details
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -34,6 +35,7 @@ import com.example.pokedox_by_sometimes.core.designsystem.utils.getPokemonTypeCo
 import com.example.pokedox_by_sometimes.core.model.Pokemon
 import com.example.pokedox_by_sometimes.core.model.PokemonInfo
 import com.example.pokedox_by_sometimes.core.preview.PreviewUtils
+import com.example.pokedox_by_sometimes.navigation.currentComposeNavigator
 
 @Composable
 fun DetailsScreen(
@@ -56,6 +58,8 @@ fun DetailsScreen(
 
 @Composable
 fun DetailsHeader(pokemon: Pokemon) {
+    val composeNavigator = currentComposeNavigator
+
     val shape = RoundedCornerShape(
         topStart = 0.dp,
         topEnd = 0.dp,
@@ -73,7 +77,9 @@ fun DetailsHeader(pokemon: Pokemon) {
         Icon(
             imageVector = Icons.Default.ArrowBack,
             contentDescription = null,
-            modifier = Modifier.padding(end = 6.dp),
+            modifier = Modifier
+                .padding(end = 6.dp)
+                .clickable { composeNavigator.navigateUp() },
             tint = PokedexTheme.colors.absoluteWhite,
         )
         Text(
