@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.jetbrains.kotlin.serialization)
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 
 }
 
@@ -61,12 +63,14 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
 //    implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
-    implementation("com.github.skydoves:landscapist-glide:2.5.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.0")
+    implementation(libs.landscapist.glide)
+    implementation(libs.kotlinx.collections.immutable)
 
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.kotlinx.serialization.core)
 
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
 
 }

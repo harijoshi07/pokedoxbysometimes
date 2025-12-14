@@ -14,8 +14,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,11 +23,13 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.pokedox_by_sometimes.R
 import com.example.pokedox_by_sometimes.core.designsystem.theme.PokedexTheme
 import com.example.pokedox_by_sometimes.core.designsystem.utils.getPokemonTypeColor
 import com.example.pokedox_by_sometimes.core.model.Pokemon
@@ -75,7 +75,7 @@ fun DetailsHeader(pokemon: Pokemon) {
             .background(color = PokedexTheme.colors.background)
     ) {
         Icon(
-            imageVector = Icons.Default.ArrowBack,
+            painter = painterResource(id = R.drawable.arrow_back_icon),
             contentDescription = null,
             modifier = Modifier
                 .padding(end = 6.dp)
